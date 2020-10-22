@@ -1,27 +1,18 @@
-let timerEl = document.getElementById('timer');
-var secondsLeft = 120;
+let timerEl = document.getElementById('timer-container');
+var secondsLeft = 300;
 
 function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
+    timerEl.textContent = secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       clearInterval(timerInterval);
-      sendMessage();
-    }
-
-  }, 1000);
+      }
+else {
+  secondsLeft--;
 }
-
-function sendMessage() {
-  timeEl.textContent = " ";
-
-  var imgEl = document.createElement("img");
-
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
-
+  }, 1000);
 }
 
 setTime();
