@@ -14,6 +14,7 @@ function setTime() {
 }
   }, 1000);
 }
+setTime ();
 // question display
 function questionDisplay(qtn, choice) {
   console.log("question display");
