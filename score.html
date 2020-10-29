@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Score Page</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous"/link>
-       <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href = "index.html"</a>
+    <meta charset ="UTF-8" />
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>High Score Page</title>
+    <link rel ="stylesheet" href ="assets/css/style.css"/>
+    <link rel ="stylesheet"
+    href ="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity ="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin ="anonymous"></link>
+       <nav class ="navbar navbar-light bg-light">
+      <a class ="navbar-brand" href = "index.html"></a>
     </nav>
   </head>
   <body>
-    <script
+    <nav class ="navbar navbar-expand-lg">
+      <a class ="navbar-brand" href="index.html">Start Over!</a>
+    </nav>
+    <main class ="container">
+      <div class ="row">
+        <div class = "col">
+          <div class ="card">
+            <div class = "card-body">
+              <h1>High Score Page</h1>
+              <div class= "key"></div>
+              <div class="value"></div>
+            </div>
+          </div>
+        </div>
+        </main>
+    <script>
+      let i = 0
+      while (i < localStorage.length) {
+        var key = localStorage.key(i);
+        var value = localStorage[key];
+        console.log(key + " " + value);
+        var content = document.querySelector(".key");
+        var user = document.createElement("li");
+        user.setAttribute("class", "score li" );
+        var blk = document.createElement("ul");
+        var node = document.createTextNode(value + " - " + key.toUpperCase())
+        user.appendChild(node);
+        blk.appendChild(user);
+        content.appendChild(blk);
+        i++;
+      }
+      var value =document.querySelector(".value");
+      var clearButton =document.createElement("button");
+      clearButton.setAttribute("class", "clearButton");
+      clearButton.textContent ="Clear High Scores"
+      clearButton.onclick =function() {
+        window.localStorage.clear();
+        document.querySelector(".key").innerHTML= "";
+      }
+      value.appendChild(clearButton);
+    </script>
   </body>
   </html>
