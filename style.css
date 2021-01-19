@@ -1,60 +1,76 @@
-#coding Quiz {
-    text-align: center;
-    display: block;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+:root {
+  --hue-nuetral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+body {
+  --hue: var(--hue neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
 }
 
-body 
-        #grad {
-        background-image: linear-gradient(green, blue);
-        background-attachment: fixed;
-        background-attachment: top;
-        min-height: 100px;
-      }
-
-nav {
-    background-color: ivory;
-    color: midnightblue;
+body.correct {
+  --hue: var(--hue-correct);
 }
 
-.navbar-brand {
-    color: white;
+body.wrong {
+  --hue: var(--hue-wrong);
 }
-
-button {
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 .container {
-    margin-top: 50px;
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
 }
-
-.card-body {
-    background-color: lightgray;
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
 }
-
-li {
-    background-color: lightgrey;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
+.btn {
+  --hue: var(--hue-nuetral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
 }
-
-.questions {
-    display: block;
+.btn-hover {
+  border-color: black;
 }
-
-ul {
-    list-style-type: none;
+.btn.correct {
+  --hue: var(--hue-correct);
 }
-
-li {
-    display: table;
+.btn.wrong {
+  --hue: var(--hue-wrong);
 }
-
-.scoreli {
-    border-radius: 3px;
-    display: table;
-    width: 100px;
+.start-btn,
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hide {
+  display: none;
 }
